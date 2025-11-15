@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ek Order Tab Example</title>
+  <style>
+    body { font-family: Arial; }
+    .tab {
+      overflow: hidden;
+      border: 1px solid #ccc;
+      background-color: #f1f1f1;
+    }
+    .tab button {
+      background-color: inherit;
+      float: left;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      padding: 14px 16px;
+      transition: 0.3s;
+      font-size: 17px;
+    }
+    .tab button:hover {
+      background-color: #ddd;
+    }
+    .tab button.active {
+      background-color: #ccc;
+    }
+    .tabcontent {
+      display: none;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-top: none;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Ek Order - Tab Example</h2>
+<div class="tab">
+  <button class="tablinks" onclick="openTab(event, 'Stage1')" id="defaultOpen">Stage 1</button>
+  <button class="tablinks" onclick="openTab(event, 'Stage2')">Stage 2</button>
+  <button class="tablinks" onclick="openTab(event, 'Stage3')">Stage 3</button>
+</div>
+
+<div id="Stage1" class="tabcontent">
+  <h3>Stage 1: Student Enrollment</h3>
+  <p>Students register and enroll with their key skills.</p>
+</div>
+
+<div id="Stage2" class="tabcontent">
+  <h3>Stage 2: Skill Exchange & Certificate</h3>
+  <p>Exchange skills and provide certificates to successful students.</p>
+</div>
+
+<div id="Stage3" class="tabcontent">
+  <h3>Stage 3: Become Tutor & Advanced</h3>
+  <p>Enable verified students to become tutors and unlock advanced features.</p>
+</div>
+
+<script>
+function openTab(evt, tabName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(tabName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+// Set default open
+document.getElementById("defaultOpen").click();
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Edubridge - Skill Exchange App</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #2196F3, #FF9800);
+      color: white;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      padding: 40px;
+    }
+    h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+    button {
+      background-color: white;
+      color: #333;
+      border: none;
+      border-radius: 10px;
+      padding: 12px 20px;
+      margin: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    button:hover {
+      background-color: #f1f1f1;
+    }
+    .card {
+      background-color: rgba(255,255,255,0.1);
+      border-radius: 15px;
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 350px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎓 Edubridge</h1>
+    <p>Skill Exchange Platform for Students</p>
+    <button onclick="showCourses()">View Courses</button>
+    <button onclick="showEnroll()">Become a Tutor</button>
+    <div id="content"></div>
+  </div>
+
+  <script>
+    function showCourses() {
+      document.getElementById('content').innerHTML = `
+        <div class="card">
+          <h2>Available Courses</h2>
+          <p>📘 Photoshop Basics</p>
+          <p>💼 Business Communication</p>
+          <p>🧮 Excel for Beginners</p>
+          <p>📊 Marketing Fundamentals</p>
+          <button onclick="showEnroll()">Enroll Now</button>
+        </div>`;
+    }
+
+    function showEnroll() {
+      document.getElementById('content').innerHTML = `
+        <div class="card">
+          <h2>Enrollment Form</h2>
+          <input type="text" id="name" placeholder="Your Name" style="padding:8px;width:80%;border-radius:5px;border:none;"><br><br>
+          <input type="text" id="course" placeholder="Course Name" style="padding:8px;width:80%;border-radius:5px;border:none;"><br><br>
+          <button onclick="showCertificate()">Submit</button>
+        </div>`;
+    }
+
+    function showCertificate() {
+      const name = document.getElementById('name').value || 'Student';
+      const course = document.getElementById('course').value || 'Course';
+      document.getElementById('content').innerHTML = `
+        <div class="card">
+          <h2>Certificate of Completion</h2>
+          <p>This is to certify that <strong>${name}</strong></p>
+          <p>has successfully completed the course <strong>${course}</strong>.</p>
+          <p>🕊️ Edubridge Platform</p>
+        </div>`;
+    }
+  </script>
+</body>
+</html>
